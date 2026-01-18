@@ -32,8 +32,8 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
 
-      - name: Authorize Docker push
-        run: gcloud auth configure-docker
+      - name: 'Authorize Docker'
+        run: gcloud auth configure-docker gcr.io
 
       - name: Build and Push Container
         run: |
