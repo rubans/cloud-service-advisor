@@ -1,0 +1,247 @@
+{
+    "startNodeId": "q1",
+    "nodes": {
+        "q1": {
+            "id": "q1",
+            "type": "question",
+            "text": "What is your primary goal?",
+            "options": [
+                {
+                    "label": "Build/Host a Web App",
+                    "nextId": "q2_compute"
+                },
+                {
+                    "label": "Store Data",
+                    "nextId": "q3_storage"
+                },
+                {
+                    "label": "Set up a Database",
+                    "nextId": "q4_database"
+                },
+                {
+                    "label": "Analyze Data / AI",
+                    "nextId": "q5_analytics"
+                }
+            ]
+        },
+        "q2_compute": {
+            "id": "q2_compute",
+            "type": "question",
+            "text": "How do you want to manage the infrastructure?",
+            "options": [
+                {
+                    "label": "I don't want to manage servers (Serverless)",
+                    "nextId": "q2a_serverless"
+                },
+                {
+                    "label": "I need full control over OS (VMs)",
+                    "nextId": "res_gce"
+                },
+                {
+                    "label": "I have containerized microservices",
+                    "nextId": "q2b_k8s"
+                }
+            ]
+        },
+        "q2a_serverless": {
+            "id": "q2a_serverless",
+            "type": "question",
+            "text": "Is your traffic event-driven or request-based?",
+            "options": [
+                {
+                    "label": "Event-driven functions",
+                    "nextId": "res_functions"
+                },
+                {
+                    "label": "Request-based HTTP service",
+                    "nextId": "res_run"
+                },
+                {
+                    "label": "Static Website",
+                    "nextId": "res_firebase"
+                }
+            ]
+        },
+        "q2b_k8s": {
+            "id": "q2b_k8s",
+            "type": "question",
+            "text": "Do you need heavy orchestration (Kubernetes)?",
+            "options": [
+                {
+                    "label": "Yes, complex orchestration",
+                    "nextId": "res_gke"
+                },
+                {
+                    "label": "No, just run the container",
+                    "nextId": "res_run"
+                }
+            ]
+        },
+        "q3_storage": {
+            "id": "q3_storage",
+            "type": "question",
+            "text": "What kind of data are you storing?",
+            "options": [
+                {
+                    "label": "Unstructured files (images, videos)",
+                    "nextId": "res_gcs"
+                },
+                {
+                    "label": "Block storage for VMs",
+                    "nextId": "res_pd"
+                }
+            ]
+        },
+        "q4_database": {
+            "id": "q4_database",
+            "type": "question",
+            "text": "What data model do you need?",
+            "options": [
+                {
+                    "label": "Relational (SQL)",
+                    "nextId": "q4a_sql"
+                },
+                {
+                    "label": "Non-Relational (NoSQL)",
+                    "nextId": "q4b_nosql"
+                }
+            ]
+        },
+        "q4a_sql": {
+            "id": "q4a_sql",
+            "type": "question",
+            "text": "Do you need global horizontal scale?",
+            "options": [
+                {
+                    "label": "Yes (Global)",
+                    "nextId": "res_spanner"
+                },
+                {
+                    "label": "No (Regional/Standard)",
+                    "nextId": "res_sql"
+                }
+            ]
+        },
+        "q4b_nosql": {
+            "id": "q4b_nosql",
+            "type": "question",
+            "text": "Document or Wide-column?",
+            "options": [
+                {
+                    "label": "Mobile/Web App (Document)",
+                    "nextId": "res_firestore"
+                },
+                {
+                    "label": "High-throughput (Wide-column)",
+                    "nextId": "res_bigtable"
+                }
+            ]
+        },
+        "q5_analytics": {
+            "id": "q5_analytics",
+            "type": "question",
+            "text": "What is the primary task?",
+            "options": [
+                {
+                    "label": "Data Warehousing",
+                    "nextId": "res_bigquery"
+                },
+                {
+                    "label": "Stream Processing",
+                    "nextId": "res_dataflow"
+                }
+            ]
+        },
+        "res_gce": {
+            "id": "res_gce",
+            "type": "result",
+            "title": "Compute Engine",
+            "description": "Scalable, high-performance virtual machines. Ideal for migrating existing workloads or when you need full OS control.",
+            "link": "https://cloud.google.com/compute"
+        },
+        "res_functions": {
+            "id": "res_functions",
+            "type": "result",
+            "title": "Cloud Functions",
+            "description": "Scalable, pay-as-you-go, event-driven functions as a service (FaaS). Great for glue code and event processing.",
+            "link": "https://cloud.google.com/functions"
+        },
+        "res_run": {
+            "id": "res_run",
+            "type": "result",
+            "title": "Cloud Run",
+            "description": "Fully managed compute platform for deploying containerized applications. Serverless, scales to zero.",
+            "link": "https://cloud.google.com/run"
+        },
+        "res_firebase": {
+            "id": "res_firebase",
+            "type": "result",
+            "title": "Firebase Hosting",
+            "description": "Fast and secure hosting for web apps, static content, and dynamic content.",
+            "link": "https://firebase.google.com/products/hosting"
+        },
+        "res_gke": {
+            "id": "res_gke",
+            "type": "result",
+            "title": "Google Kubernetes Engine (GKE)",
+            "description": "Managed service for running Kubernetes clusters. Best for complex, orchestrated microservices.",
+            "link": "https://cloud.google.com/kubernetes-engine"
+        },
+        "res_gcs": {
+            "id": "res_gcs",
+            "type": "result",
+            "title": "Cloud Storage",
+            "description": "Object storage for companies of all sizes. Store any amount of data. Best for images, videos, backups.",
+            "link": "https://cloud.google.com/storage"
+        },
+        "res_pd": {
+            "id": "res_pd",
+            "type": "result",
+            "title": "Persistent Disk",
+            "description": "Reliable, high-performance block storage for Virtual Machine instances.",
+            "link": "https://cloud.google.com/persistent-disk"
+        },
+        "res_spanner": {
+            "id": "res_spanner",
+            "type": "result",
+            "title": "Cloud Spanner",
+            "description": "Fully managed, scalable, relational database service for regional and global application data.",
+            "link": "https://cloud.google.com/spanner"
+        },
+        "res_sql": {
+            "id": "res_sql",
+            "type": "result",
+            "title": "Cloud SQL",
+            "description": "Fully managed relational database service for MySQL, PostgreSQL, and SQL Server.",
+            "link": "https://cloud.google.com/sql"
+        },
+        "res_firestore": {
+            "id": "res_firestore",
+            "type": "result",
+            "title": "Firestore",
+            "description": "Flexible, scalable NoSQL cloud database to store and sync data for client- and server-side development.",
+            "link": "https://firebase.google.com/products/firestore"
+        },
+        "res_bigtable": {
+            "id": "res_bigtable",
+            "type": "result",
+            "title": "Cloud Bigtable",
+            "description": "Fully managed, scalable NoSQL database service for large analytical and operational workloads.",
+            "link": "https://cloud.google.com/bigtable"
+        },
+        "res_bigquery": {
+            "id": "res_bigquery",
+            "type": "result",
+            "title": "BigQuery",
+            "description": "Serverless, highly scalable, and cost-effective multi-cloud data warehouse designed for business agility.",
+            "link": "https://cloud.google.com/bigquery"
+        },
+        "res_dataflow": {
+            "id": "res_dataflow",
+            "type": "result",
+            "title": "Dataflow",
+            "description": "Unified stream and batch data processing that's serverless, fast, and cost-effective.",
+            "link": "https://cloud.google.com/dataflow"
+        }
+    }
+}
