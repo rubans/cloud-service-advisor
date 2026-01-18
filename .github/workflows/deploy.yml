@@ -37,6 +37,8 @@ jobs:
 
       - name: Build and Push Container
         run: |
+          echo "FULL IMAGE URL: gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ github.sha }}"
+          echo "ACTIVE SA: $(gcloud config get-value account)"
           docker build -t gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ github.sha }} .
           docker push gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
 
