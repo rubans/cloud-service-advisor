@@ -22,12 +22,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: DEBUG SECRETS (UNSAFE - REMOVE AFTER FIXING)
-        run: |
-          echo "GCP_PROJECT_ID: $(echo '${{ secrets.GCP_PROJECT_ID }}' | sed 's/./& /g')"
-          echo "GCP_WIF_PROVIDER: $(echo '${{ secrets.GCP_WIF_PROVIDER }}' | sed 's/./& /g')"
-          echo "GCP_WIF_SA_EMAIL: $(echo '${{ secrets.GCP_WIF_SA_EMAIL }}' | sed 's/./& /g')"
-
       - name: Google Auth
         id: auth
         uses: google-github-actions/auth@v2
