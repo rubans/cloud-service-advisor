@@ -10,8 +10,12 @@ const Header = () => {
                     </svg>
                     <h1 className="text-xl font-medium text-gray-700 tracking-tight">Google Cloud Service Advisor</h1>
                 </div>
-                <div className="text-sm text-gray-500 hidden sm:block">
-                    Find the right product for your needs
+                <div className="hidden sm:flex items-center gap-3">
+                    <img src={require('../assets/mymegam-logo.png')} alt="MyMegam" className="h-10 w-auto" />
+                    <div className="flex flex-col">
+                        <span className="text-xl font-bold text-gray-800 leading-none tracking-tight">MyMegam</span>
+                        <span className="text-sm text-gray-500 font-medium leading-none mt-1">Product Family</span>
+                    </div>
                 </div>
             </div>
         </header>
